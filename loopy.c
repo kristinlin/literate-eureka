@@ -20,7 +20,7 @@ static void sighandler( int signo ) {
   //if it's SIGINT, open a file called msg and write to it, exit successfully
   if (signo == SIGINT) {
     int fd;
-    fd = open("msg", O_CREAT | O_APPEND | O_RDWR, 0664);
+    fd = open("msg", O_CREAT | O_APPEND | O_WRONLY, 0664);
     check_error(fd);
     check_error(write(fd,
 		      "program ended due to SIGINT\n",
